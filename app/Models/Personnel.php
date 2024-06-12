@@ -22,5 +22,5 @@ class Personnel extends Model
     {
         return $this->hasMany(Formation::class);
     }
-    
+
 }
