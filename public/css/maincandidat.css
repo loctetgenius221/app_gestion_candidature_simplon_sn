@@ -1,0 +1,60 @@
+@import url('https://fonts.googleapis.com/css2?family=Roboto+Mono:ital,wght@0,100..700;1,100..700&family=Roboto+Slab:wght@100..900&family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&display=swap');
+
+
+.container {
+    width: 88%;
+    min-height: 100vh;
+    margin: auto;
+    font-family: "Roboto Slab", serif;
+    padding-top: 50px;
+}
+
+.container .section-title {
+    font-size: 18px;
+    margin-bottom: 26px;
+}
+
+.section-content {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+}
+
+.card
+ {
+    width: 364px;
+    height: 257px;
+    background: white;
+    border-left: 8px solid #ce0033;
+    padding: 20px;
+ }
+
+ .card h1 {
+    font-size: 18px;
+    margin-bottom: 20px;
+ }
+
+ .card h2 {
+    font-size: 16px;
+ }
+
+ .card .date {
+    display: flex;
+    justify-content: space-between;
+ }
+
+ .card .card-statut {
+    display: flex;
+    justify-content: space-between;
+    margin-top: 78px;
+ }
+
+
+.card-formation
+ {
+    width: 364px;
+    height: 257px;
+    background: white;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1), 0 0 0 2px rgba(0, 0, 0, 0.2);
+    padding: 20px;
+ }

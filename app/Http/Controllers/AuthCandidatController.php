@@ -22,7 +22,7 @@ class AuthCandidatController extends Controller
         if (Auth::attempt($credentials)) {
             return redirect()->intended('/');
         }
-        return redirect('/')->withErrors('Identifiant ou mot de passe incorrect');
+        return redirect('/candidat/dashboard')->withErrors('Identifiant ou mot de passe incorrect');
     }
 
     // Méthode de déconnexion de l'utilisateur
@@ -35,13 +35,13 @@ class AuthCandidatController extends Controller
     // Méthode d'affichage du formulaire
     public function showRegistrationForm()
     {
-        return view('register');
+        return view('candidats.auth.register');
     }
 
     // Méthode d'enregistrement de l'utilisateur sur la base de données
     public function register(Request $request)
     {
-       
+
 
         // Handle file uploads
         $imagePath = $request->file('image')->store('images', 'public');
@@ -61,6 +61,6 @@ class AuthCandidatController extends Controller
             'mot_de_passe' => Hash::make($request->mot_de_passe),
         ]);
 
-        return redirect('login');
+        return redirect('candidat-login');
     }
 }
