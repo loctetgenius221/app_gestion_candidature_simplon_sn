@@ -12,7 +12,7 @@ class FormationController extends Controller
     public function index(){
         $formations = Formation::all();
         $personnels = Personnel::all();
-        return view('formations:show', compact('formations', 'personnel'));
+        return view('formations/show', compact('formations', 'personnels'));
     }
 
     public function create(){
@@ -27,7 +27,8 @@ class FormationController extends Controller
             'nom' => 'required',
             'description' => 'required',
             'debouches' => 'required',
-            'statut' => 'required',
+            'date_de_debut' => 'required',
+            'date_de_fin' => 'required','statut' => 'required',
             'critere_de_validation' => 'required',
 
         ]);

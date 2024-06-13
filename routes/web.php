@@ -29,6 +29,7 @@ Route::post('personnel-register', [PersonnelAuthController::class, 'register']);
 ROute::prefix('formations')->name('formations.')->group(function(){
     Route::get('/show', [FormationController::class, 'index'])->name('show');
     ROute::get('/create', [FormationController::class, 'create'])->name('create');
+    Route::get('formation/{}id/details', [FormationController::class, 'details'])->name('details');
     Route::post('/', [FormationController::class, 'store'])->name('store');
     Route::get('/{formation}/edit', [FormationController::class, 'edit'])->name('edit');
     Route::put('{formation', [FormationController::class, 'update'])->name('update');
