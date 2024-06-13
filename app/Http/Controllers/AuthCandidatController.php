@@ -20,9 +20,9 @@ class AuthCandidatController extends Controller
     {
         $credentials = $request->only('email', 'mot_de_passe');
         if (Auth::attempt($credentials)) {
-            return redirect()->intended('/');
+            return redirect()->intended('dasboard');
         }
-        return redirect('/')->withErrors('Identifiant ou mot de passe incorrect');
+        return redirect('dashboard_candidat')->withErrors('Identifiant ou mot de passe incorrect');
     }
 
     // Méthode de déconnexion de l'utilisateur
