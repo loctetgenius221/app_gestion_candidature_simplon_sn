@@ -50,7 +50,9 @@ class AuthCandidatController extends Controller
     // Méthode d'affichage du formulaire
     public function showRegistrationForm()
     {
+
         return view('candidats/auth/register');
+
     }
 
     // Méthode d'enregistrement de l'utilisateur sur la base de données
@@ -77,23 +79,6 @@ class AuthCandidatController extends Controller
         ]);
 
         return redirect('candidat-login');
-    }
-
-    public function dashboard()
-    {
-        $Formations = Formation::all();
-        $FormationTotal = Formation::count();
-        $formationEnCours = Formation::where('statut', 1)->count();
-        $FormationsAvenir = Formation::where('statut', 0)->count();
-
-        // Adjust this to fit your actual relationship
-
-return view('personnels.dashboard', [
-    'formation' => $Formations,
-    'fortmationTotal' => $FormationTotal,
-    'formationEnCours' => $formationEnCours,
-    'formationsAvenir' => $FormationsAvenir,
-
-]);
+main
     }
 }
