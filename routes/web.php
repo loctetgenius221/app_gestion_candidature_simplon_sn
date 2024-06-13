@@ -1,6 +1,7 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
+use App\Http\Controllers\CandidatController;
 use App\Http\Controllers\AuthCandidatController;
 use App\Http\Controllers\PersonnelAuthController;
 
@@ -24,3 +25,8 @@ Route::post('personnel-login', [PersonnelAuthController::class, 'login']);
 Route::get('logout', [PersonnelAuthController::class, 'logout'])->name('logout');
 Route::get('personnel-register', [PersonnelAuthController::class, 'showRegistrationForm'])->name('personnel-register');
 Route::post('personnel-register', [PersonnelAuthController::class, 'register']);
+
+
+// Route pour le dashboard candidat
+
+Route::get('/candidat/dashboard', [CandidatController::class, 'index'])->name('candidat-dashboard');
