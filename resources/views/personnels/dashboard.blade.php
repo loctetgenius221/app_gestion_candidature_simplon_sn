@@ -37,7 +37,7 @@
             <div class="user-info">
                 <img src="{{ asset('images/logo.png') }}" alt="image-personnel">
                 <h3>
-                    <span>Bonjour Bouna Bin Abdallah Dramé</span>
+                    <span>Bonjour </span>
                     <span>Bienvenue sur Simplon Sénégal</span>
                 </h3>
             </div>
@@ -146,7 +146,7 @@
             <div class="container-page">
                 <div class="compteur-content">
                     <div class="compteur">
-                    <span>34</span>
+                    <span>{{ $Formations }}</span>
                     </div>
                     <h3>Formations en cours</h3>
                 </div>
