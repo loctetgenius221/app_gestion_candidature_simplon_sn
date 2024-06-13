@@ -5,15 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
 <style>
-            .imageDeFont {
-            width: 100%;
-            height: 250px;
-    margin: 0px;
-    background-image: url({{ asset('images/fondDePage.png') }});
-    background-repeat: no-repeat; /* Prevent repeating the image */
-    background-size: cover; /* Ensure the image covers the entire area */
-    position: relative; /* Enable positioning of child elements */
-}
+
 </style>
     <link rel="stylesheet" href="{{ asset('css/style.css') }}">
 </head>
@@ -142,42 +134,41 @@
                 </a>
             </div>
         </div>
+
         <div class="container-page1">
             <div class="container-page">
+        @foreach($formations as $formation)
+
                 <div class="compteur-content">
                     <div class="compteur">
-                    <span>{{ $Formations }}</span>
+                    <span></span>
                     </div>
                     <h3>Formations en cours</h3>
                 </div>
+
+
+
                 <div class="compteur-content">
                     <div class="compteur">
-                    <span>34</span>
-                    
+                    <span>{{ $formationsTotal }}</span>
                 </div>
                 <h3>Formations a venir</h3>
                 </div>
-                <div class="compteur-content">
-                    <div class="compteur">
-                    <span>34</span>
-                    </div>
-                    <h3>Candidatures reçu</h3>
-                </div>
-                <div class="compteur-content">
-                    <div class="compteur">
-                        <span>34</span>
-                    </div>
-                    <h3>Candidats sélectionner</h3>
-                </div>
+
+            @endforeach
             </div>
+
+
                 <div class="condidatures">
+
                 <h1>Candidature</h1>
+        @foreach($formations as $formation)
 
                 <div class="candidatures-diso">
                     <div class="candidature1">
                         <div class="candidature">
-                        <h3>P8 DWWM</h3>
-                        <h4>En cours</h4>
+                        <h3>{{ $formation->nom}}</h3>
+                        <h4>{{ $formation->statut }}</h4>
                         <h4>345 candidats</h4>
                         </div>
                         <a href="#">
@@ -187,50 +178,20 @@
                         </a>
 
                     </div>
-                    <div class="candidature1">
-                        <div class="candidature">
-                        <h3>P8 DWWM</h3>
-                        <h4>En cours</h4>
-                        <h4>345 candidats</h4>
-                        </div>
-                        <a href="#">
-                        <div class="btn-voir-candidature">
-                            <span>Voir</span>
-                        </div>
-                        </a>
+        @endforeach
 
-                    </div>
-                    <div class="candidature1">
-                        <div class="candidature">
-                        <h3>P8 DWWM</h3>
-                        <h4>En cours</h4>
-                        <h4>345 candidats</h4>
-                        </div>
-                        <a href="#">
-                        <div class="btn-voir-candidature">
-                            <span>Voir</span>
-                        </div>
-                        </a>
-
-                    </div>
-                    <div class="candidature1">
-                        <div class="candidature">
-                        <h3>P8 DWWM</h3>
-                        <h4>En cours</h4>
-                        <h4>345 candidats</h4>
-                        </div>
-                        <a href="#">
-                        <div class="btn-voir-candidature">
-                            <span>Voir</span>
-                        </div>
-                        </a>
-
-                    </div>
+                         </div>
                 </div>
 
                 </div>
         </div>
     </div>
-    <div class="imageDeFont"></div>
+    <div class="imageDeFont" style=" width: 100%;
+            height: 250px;
+    margin: 0px;
+    background-image: url({{ asset('images/fondDePage.png') }});
+    background-repeat: no-repeat; /* Prevent repeating the image */
+    background-size: cover; /* Ensure the image covers the entire area */
+    position: relative;" ></div>
 </body>
 </html>

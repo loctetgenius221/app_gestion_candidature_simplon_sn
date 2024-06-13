@@ -12,7 +12,7 @@ class FormationController extends Controller
     public function index(){
         $formations = Formation::all();
         $personnels = Personnel::all();
-        return view('formations:show', compact('formations', 'personnel'));
+        return view('formations/show', compact('formations', 'personnels'));
     }
 
     public function create(){

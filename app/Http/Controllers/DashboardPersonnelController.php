@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Models\Formation;
+use App\Models\Personnel;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 
@@ -10,21 +11,22 @@ class DashboardPersonnelController extends Controller
 {
     public function dashboard()
     {
-        $Formations = Formation::all();
-        $FormationTotal = Formation::count();
-        $formationEnCours = Formation::where('statut', 1)->count();
-        $FormationsAvenir = Formation::where('statut', 0)->count();
+        $formations = Formation::all();
+        $personnels = Personnel::all();
 
-        $user = Auth::user();
-$personnel = $user->personnel; // Adjust this to fit your actual relationship
+        $formationsTotal = Formation::count();
+        $formationAVenir = Formation::where('statut', 'a venir')->count();
 
-return view('personnels.dashboard', [
-    'formation' => $Formations,
-    'fortmationTotal' => $FormationTotal,
-    'formationEnCours' => $formationEnCours,
-    'formationsAvenir' => $FormationsAvenir,
-    'personnel' => $personnel
-]);
+    
+        return view('personnels.dashboard',[
+            'formationsTotal' => $formationsTotal,
+            'formationAVenir' => $formationAVenir,
+        ], compact('formations', 'personnels'));
+    }
+    public function index(){
+        $formations = Formation::all();
+        $personnels = Personnel::all();
+        return view('formations/show', compact('formations', 'personnels'));
     }
 
     

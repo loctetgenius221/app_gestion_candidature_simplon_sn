@@ -2,11 +2,9 @@
 namespace App\Http\Controllers;
 
 use App\Models\Candidat;
-use App\Models\Formation;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Hash;
-use Illuminate\Support\Facades\Session;
 use Illuminate\Support\Facades\Storage;
 
 class AuthCandidatController extends Controller
@@ -19,26 +17,13 @@ class AuthCandidatController extends Controller
 
     // Méthode de connexion de l'utilisateur
     public function login(Request $request)
-{
-    // Récupérer les identifiants depuis la requête
-    $credentials = $request->only('email', 'mot_de_passe');
-    
-    // Essayer de connecter l'utilisateur avec les identifiants fournis
-    if (Auth::attempt($credentials)) {
-        // Récupérer l'utilisateur authentifié
-        $user = Auth::user();
-
-        // Stocker des informations dans la session
-        Session::put('user_id', $user->id);
-        Session::put('user_email', $user->email);
-
-        // Rediriger vers le tableau de bord
-        return redirect()->intended('dashboard');
+    {
+        $credentials = $request->only('email', 'mot_de_passe');
+        if (Auth::attempt($credentials)) {
+            return redirect()->intended('dasboard');
+        }
+        return redirect('dashboard_candidat')->withErrors('Identifiant ou mot de passe incorrect');
     }
-
-    // Si l'authentification échoue, rediriger vers le tableau de bord candidat avec un message d'erreur
-    return redirect('dashboard_candidat')->withErrors('Identifiant ou mot de passe incorrect');
-}
 
     // Méthode de déconnexion de l'utilisateur
     public function logout()
@@ -79,6 +64,7 @@ class AuthCandidatController extends Controller
         ]);
 
         return redirect('candidat-login');
-main
+
+
     }
 }
