@@ -18,6 +18,10 @@ Route::get('logout', [AuthCandidatController::class, 'logout'])->name('logout');
 Route::get('candidat-register', [AuthCandidatController::class, 'showRegistrationForm'])->name('candidat-register');
 Route::post('candidat-register', [AuthCandidatController::class, 'register']);
 
+// Routes pour les fonctionnalités de candidat
+
+Route::get('candidat-formation', [CandidatController::class, 'afficher']);
+
 // Route authentification du personnel
 
 Route::get('personnel-login', [PersonnelAuthController::class, 'showLoginForm'])->name('personnel-login');
