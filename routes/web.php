@@ -32,5 +32,5 @@ ROute::prefix('formations')->name('formations.')->group(function(){
     Route::post('/', [FormationController::class, 'store'])->name('store');
     Route::get('/{formation}/edit', [FormationController::class, 'edit'])->name('edit');
     Route::put('{formation', [FormationController::class, 'update'])->name('update');
-        Route::delete('/{formation', [FormationController::class, 'destroy'])->name('destroy');
+    Route::delete('/{formation', [FormationController::class, 'destroy'])->name('destroy');
 });
