@@ -3,6 +3,7 @@
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\AuthCandidatController;
 use App\Http\Controllers\PersonnelAuthController;
+use App\Http\Controllers\FormationController;
 
 Route::get('/', function () {
     return view('welcome');
@@ -24,3 +25,12 @@ Route::post('personnel-login', [PersonnelAuthController::class, 'login']);
 Route::get('logout', [PersonnelAuthController::class, 'logout'])->name('logout');
 Route::get('personnel-register', [PersonnelAuthController::class, 'showRegistrationForm'])->name('personnel-register');
 Route::post('personnel-register', [PersonnelAuthController::class, 'register']);
+
+ROute::prefix('formations')->name('formations.')->group(function(){
+    Route::get('/show', [FormationController::class, 'index'])->name('show');
+    ROute::get('/create', [FormationController::class, 'create'])->name('create');
+    Route::post('/', [FormationController::class, 'store'])->name('store');
+    Route::get('/{formation}/edit', [FormationController::class, 'edit'])->name('edit');
+    Route::put('{formation', [FormationController::class, 'update'])->name('update');
+        Route::delete('/{formation', [FormationController::class, 'destroy'])->name('destroy');
+});

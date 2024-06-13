@@ -35,7 +35,7 @@ class AuthCandidatController extends Controller
     // Méthode d'affichage du formulaire
     public function showRegistrationForm()
     {
-        return view('register');
+        return view('candidats/auth/register');
     }
 
     // Méthode d'enregistrement de l'utilisateur sur la base de données
@@ -61,6 +61,6 @@ class AuthCandidatController extends Controller
             'mot_de_passe' => Hash::make($request->mot_de_passe),
         ]);
 
-        return redirect('login');
+        return redirect('candidat-login');
     }
 }
