@@ -14,9 +14,30 @@ class CandidatController extends Controller
     }
     public function index() {
 
-
         return view('candidats.index');
     }
+
+    public function afficherDetail($id) {
+
+        $formation = Formation::findOrFail($id);
+        return view('candidats.detail', compact('formation'));
+    }
+
+    public function postuler($id) {
+
+        $formation = Formation::findOrFail($id);
+        return view('candidats.postuler', compact('formation'));
+    }
+
+    public function postulerTraitement(Request $request, $id) {
+
+    }
+
+    // public function candidatureDetail($id) {
+
+    //     $candidature = Candidature::all();
+    //     return view('candidats.candidature-detail');
+    // }
 
 
 }

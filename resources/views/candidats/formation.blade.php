@@ -18,23 +18,31 @@
 
     <div class="container">
         <section class="formation-venir">
-            <h2 class="section-title">Nos formations à venir</h2>
+            <h2 class="section-title">La liste de nos formations</h2>
             <div class="section-content">
-                <div class="card-formation">
-                    @foreach ($formations as $formation)
+                <img src="{{ asset('img/motif.svg') }}" class="motif motif1" alt="">
+                @foreach ($formations as $formation)
+                <div class="card-border">
+                    <div class="card-formation">
                         <h1 class="card-title">{{ $formation->nom }}</h1>
                         <div class="date">
                             <h2>Date début : </h2>
-                            <span class="date">{{ $formation->date_debut }}</span>
+                            <span class="date">{{ $formation->date_de_debut }}</span>
                         </div>
                         <div class="date">
                             <h2>Date de fin : </h2>
-                            <span class="date">{{ $formation->date_fin}}</span>
+                            <span class="date">{{ $formation->date_de_fin}}</span>
                         </div>
 
-                        <button>Découvrir plus...</button>
-                    @endforeach
+                        <form action="{{ route('detail-formation', ['id' => $formation->id]) }}" method="GET">
+                            @csrf
+                            <input type="hidden" name="id" value="{{ $formation->id }}">
+                            <button type="submit" class="detail-formation">Découvrir plus...</button>
+                        </form>
+                    </div>
                 </div>
+                @endforeach
+                <img src="{{ asset('img/motif.svg') }}" class="motif motif2" alt="">
             </div>
 
         </section>
