@@ -1,6 +1,7 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
+use App\Http\Controllers\CandidatController;
 use App\Http\Controllers\AuthCandidatController;
 use App\Http\Controllers\PersonnelAuthController;
 
@@ -16,6 +17,10 @@ Route::post('candidat-login', [AuthCandidatController::class, 'login']);
 Route::get('logout', [AuthCandidatController::class, 'logout'])->name('logout');
 Route::get('candidat-register', [AuthCandidatController::class, 'showRegistrationForm'])->name('candidat-register');
 Route::post('candidat-register', [AuthCandidatController::class, 'register']);
+
+// Routes pour les fonctionnalités de candidat
+
+Route::get('candidat-formation', [CandidatController::class, 'afficher']);
 
 // Route authentification du personnel
 
