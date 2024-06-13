@@ -9,8 +9,8 @@ class CandidatController extends Controller
 {
     public function afficher() {
 
-        $formation = Formation::all();
-        return view('candidats.formation');
+        $formations = Formation::all();
+        return view('candidats.formation', compact('formations'));
     }
     public function index() {
 
