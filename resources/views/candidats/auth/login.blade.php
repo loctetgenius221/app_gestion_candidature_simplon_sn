@@ -6,7 +6,7 @@
                     </div>
                     <div class="mb-3 text-start">
                         <label for="password" class="form-label">Password</label>
-                        <input type="password" class="form-control" id="password" name="password" required>
+                        <input type="password" class="form-control" id="password" name="mot_de_passe" required>
                     </div>
                     <!-- Bouton de connexion -->
                     <div class="d-flex justify-content-between mt-5">

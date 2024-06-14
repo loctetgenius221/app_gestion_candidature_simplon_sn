@@ -12,6 +12,6 @@ class CheckPersonnelRole
         if (Auth::check() && Auth::user()->role === 'personnel') {
             return $next($request);
         }
-        return redirect()->route('personnel-login'); // Utilisez la route de connexion pour le personnel
+        return redirect()->route('dashboard'); // Utilisez la route de connexion pour le personnel
     }
 }

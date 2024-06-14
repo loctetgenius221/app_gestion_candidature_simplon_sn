@@ -13,17 +13,22 @@ class AuthCandidatController extends Controller
     public function showLoginForm()
     {
         return view('candidats/auth/login');
+        
     }
 
     // Méthode de connexion de l'utilisateur
     public function login(Request $request)
-    {
-        $credentials = $request->only('email', 'mot_de_passe');
-        if (Auth::attempt($credentials)) {
-            return redirect()->intended('dasboard');
-        }
-        return redirect('/candidat/dashboard')->withErrors('Identifiant ou mot de passe incorrect');
+{
+    $credentials = $request->only('email', 'mot_de_passe');
+
+    dd($credentials); // Vérifiez quelles informations d'identification sont soumises
+
+    if (Auth::guard('candidat')->attempt($credentials)) {
+        return redirect()->intended('/dashboard-candidat');
     }
+
+    return back()->withErrors(['email' => 'Invalid credentials.']);
+}
 
     // Méthode de déconnexion de l'utilisateur
     public function logout()

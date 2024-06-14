@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
-<style>
+    <style>
             .imageDeFont {
             width: 100%;
             height: 250px;
@@ -126,7 +126,7 @@
                     <h2>Candidats en attente </h2>
                 </div>
                     </a>
-                <a href="#">
+                <a href="/personnel-logout">
                 <div class="btn-logout">
                     
                     <h2>Déconnexion</h2>
@@ -209,9 +209,9 @@
 
 </div>
 </div>
-<div class="imageDeFont"></div>
+
 
 </div>
-
+<div class="imageDeFont"></div>
 </body>
 </html>
