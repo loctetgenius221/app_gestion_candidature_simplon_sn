@@ -29,7 +29,7 @@ class PersonnelAuthController extends Controller
     public function logout()
     {
         Auth::logout();
-        return redirect('/');
+        return redirect('/candidat-login');
     }
 
     // Méthode d'affichage du formulaire

@@ -35,16 +35,17 @@
         <div class="profile-content">
             <span class="close-btn" id="closeProfile">&times;</span>
             <h2>Mon compte :</h2>
-            <p><strong>Prénom :</strong> Ndèye Yandé</p>
-            <p><strong>Nom :</strong> Touré</p>
-            <p><strong>Date de naissance :</strong> 19/03/2001</p>
-            <p><strong>Lieu de naissance :</strong> Dieupeul 1</p>
-            <p><strong>Adresse :</strong> Dieupeul 1, Dakar</p>
-            <p><strong>Email :</strong> toureyande77@gmail.com</p>
-            <p><strong>Téléphone :</strong> 77 863 12 41</p>
-            <p><strong>cv actuel :</strong> moncv.pdf</p>
-            <p><strong>Upload un cv :</strong> <input type="file"></p>
-            <a href="#" id="logout">Déconnexion</a>
+            <hr>
+            <p><strong>Prénom :</strong><span>Ndèye Yandé</span></p>
+            <p><strong>Nom :</strong> <span>Touré</span></p>
+            <p><strong>Date de naissance :</strong> <span>19/03/2001</span></p>
+            <p><strong>Lieu de naissance :</strong><span> Dieupeul 1</span></p>
+            <p><strong>Adresse :</strong> <span>Dieupeul 1, Dakar</span></p>
+            <p><strong>Email :</strong> <span>toureyande77@gmail.com</span></p>
+            <p><strong>Téléphone :</strong> <span>77 863 12 41</span></p>
+            <p><strong>cv actuel :</strong> <span>moncv.pdf</span></p>
+            <p><strong>Upload un cv :</strong><span> <input type="file"></span></p>
+            <a href="{{ route('candidat-logout') }}" id="logout" class="btn-deconnexion-candidat">Déconnexion</a>
         </div>
     </div>
 
