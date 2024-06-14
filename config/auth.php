@@ -65,7 +65,7 @@ return [
         //     'model' => env('AUTH_MODEL', App\Models\User::class),
         // ],
 
-        'personnels' => [
+        'users' => [
             'driver' => 'database',
             'table' => 'personnels',
         ],

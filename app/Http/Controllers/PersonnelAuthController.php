@@ -20,9 +20,9 @@ class PersonnelAuthController extends Controller
     {
         $credentials = $request->only('e_mail', 'mot_de_passe');
         if (Auth::attempt($credentials)) {
-            return redirect()->intended('/');
+            return redirect()->intended('/personnels/dashboard');
         }
-        return redirect('/')->withErrors('Identifiant ou mot de passe incorrect');
+        return redirect('/personnels/dashboard')->withErrors('Identifiant ou mot de passe incorrect');
     }
 
     // Méthode de déconnexion de l'utilisateur
@@ -44,7 +44,7 @@ class PersonnelAuthController extends Controller
 
 
         // Handle file uploads
-        $imagePath = $request->file('image')->store('images', 'public');
+        // $imagePath = $request->file('image')->store('images', 'public');
 
         // Create new Candidat
         Personnel::create([
@@ -53,7 +53,7 @@ class PersonnelAuthController extends Controller
             'adresse' => $request->adresse,
             'e_mail' => $request->e_mail,
             'telephone' => $request->telephone,
-            'image' => $imagePath,
+            // 'image' => $imagePath,
             'mot_de_passe' => Hash::make($request->mot_de_passe),
         ]);
 

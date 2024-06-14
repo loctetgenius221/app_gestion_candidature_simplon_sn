@@ -20,9 +20,9 @@ class AuthCandidatController extends Controller
     {
         $credentials = $request->only('email', 'mot_de_passe');
         if (Auth::attempt($credentials)) {
-            return redirect()->intended('/');
+            return redirect()->intended('dasboard');
         }
-        return redirect('/')->withErrors('Identifiant ou mot de passe incorrect');
+        return redirect('/candidat/dashboard')->withErrors('Identifiant ou mot de passe incorrect');
     }
 
     // Méthode de déconnexion de l'utilisateur
@@ -35,13 +35,13 @@ class AuthCandidatController extends Controller
     // Méthode d'affichage du formulaire
     public function showRegistrationForm()
     {
-        return view('candidats/auth/register');
+        return view('candidats.auth.register');
     }
 
     // Méthode d'enregistrement de l'utilisateur sur la base de données
     public function register(Request $request)
     {
-       
+
 
         // Handle file uploads
         $imagePath = $request->file('image')->store('images', 'public');
