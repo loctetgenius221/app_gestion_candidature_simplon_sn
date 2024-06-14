@@ -1,5 +1,4 @@
 <?php
-
 namespace App\Http\Controllers;
 
 use App\Models\Personnel;
@@ -12,17 +11,21 @@ class PersonnelAuthController extends Controller
     // Méthode d'affichage du formulaire de connexion
     public function showLoginForm()
     {
-        return view('personnels/login');
+        return view('personnels.login');
     }
 
     // Méthode de connexion de l'utilisateur
-    public function login(Request $request)
+
+        public function login(Request $request)
     {
         $credentials = $request->only('e_mail', 'mot_de_passe');
-        if (Auth::attempt($credentials)) {
-            return redirect()->intended('dashboard');
+       
+
+        if (Auth::guard('personnels')->attempt($credentials)) {
+            return redirect()->intended('/dashboard-personnel');
         }
-        return redirect('/dashboard')->withErrors('Identifiant ou mot de passe incorrect');
+
+        return back()->withErrors(['e_mail' => 'Invalid credentials.']);
     }
 
     // Méthode de déconnexion de l'utilisateur
@@ -32,7 +35,7 @@ class PersonnelAuthController extends Controller
         return redirect('/candidat-login');
     }
 
-    // Méthode d'affichage du formulaire
+    // Méthode d'affichage du formulaire d'inscription
     public function showRegistrationForm()
     {
         return view('personnels.register');
@@ -41,22 +44,26 @@ class PersonnelAuthController extends Controller
     // Méthode d'enregistrement de l'utilisateur sur la base de données
     public function register(Request $request)
     {
+        // Validation des données du formulaire
+        $request->validate([
+            'prenom' => 'required|string|max:255',
+            'nom' => 'required|string|max:255',
+            'adresse' => 'required|string|max:255',
+            'e_mail' => 'required|string|email|max:255|unique:personnels',
+            'telephone' => 'required|string|max:20',
+            'mot_de_passe' => 'required|string|min:8|confirmed',
+        ]);
 
-
-        // Handle file uploads
-        // $imagePath = $request->file('image')->store('images', 'public');
-
-        // Create new Candidat
+        // Create new Personnel
         Personnel::create([
             'prenom' => $request->prenom,
             'nom' => $request->nom,
             'adresse' => $request->adresse,
             'e_mail' => $request->e_mail,
             'telephone' => $request->telephone,
-            // 'image' => $imagePath,
             'mot_de_passe' => Hash::make($request->mot_de_passe),
         ]);
 
-        return redirect('personnel-login');
+        return redirect()->route('dashboard');
     }
 }

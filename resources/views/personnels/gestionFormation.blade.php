@@ -119,7 +119,7 @@
                     <h2>Candidats en attente </h2>
                 </div>
                     </a>
-                <a href="#">
+                <a href="/personnel-logout">
                 <div class="btn-logout">
                     
                     <h2>Déconnexion</h2>

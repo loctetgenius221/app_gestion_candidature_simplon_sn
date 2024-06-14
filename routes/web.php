@@ -1,5 +1,4 @@
 <?php
-
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\FormationController;
 use App\Http\Controllers\CandidatController;
@@ -19,7 +18,6 @@ Route::get('candidat-register', [AuthCandidatController::class, 'showRegistratio
 Route::post('candidat-register', [AuthCandidatController::class, 'register']);
 
 // Routes pour les fonctionnalités de candidat
-
 Route::get('candidat-formation', [CandidatController::class, 'afficher'])->name('dashboard-candidat-formation');
 Route::get('candidat-formation/{id}/detail', [CandidatController::class, 'afficherDetail'])->name('detail-formation');
 
@@ -49,33 +47,25 @@ Route::get('login', function() {
 // Routes pour les formations
 Route::prefix('formations')->name('formations.')->group(function(){
     Route::get('/show', [FormationController::class, 'index'])->name('show');
-    ROute::get('/create', [FormationController::class, 'create'])->name('create');
-    Route::get('formation/{}id/details', [FormationController::class, 'details'])->name('details');
     Route::get('/create', [FormationController::class, 'create'])->name('create');
+    Route::get('/{id}/details', [FormationController::class, 'details'])->name('details');
     Route::post('/', [FormationController::class, 'store'])->name('store');
     Route::get('/{formation}/edit', [FormationController::class, 'edit'])->name('edit');
     Route::put('/{formation}', [FormationController::class, 'update'])->name('update');
     Route::delete('/{formation}', [FormationController::class, 'destroy'])->name('destroy');
 });
 
-// Route pour le tableau de bord
-Route::middleware(['auth', 'personnel'])->group(function () {
-    
-});
-Route::get('/dashboard', [DashboardPersonnelController::class, 'dashboard'])->name('dashboard');
+// Routes pour le tableau de bord
+// Route::middleware(['auth', 'personnel'])->group(function () {
+    Route::get('/dashboard', [DashboardPersonnelController::class, 'dashboard'])->name('dashboard')->middleware('auth');
     Route::get('/formations', [DashboardPersonnelController::class, 'index'])->name('formations.index');
     Route::get('/formations-personnels/create', [DashboardPersonnelController::class, 'create'])->name('formations.create');
     Route::post('/formations', [DashboardPersonnelController::class, 'store'])->name('formations.store');
-
-Route::get('/gestionFomation', [DashboardPersonnelController::class, 'gestionFomation'])->name('gestionFomation');
-Route::get('/CreationFomation', [DashboardPersonnelController::class, 'CreationFomation'])->name('CreationFomation');
-Route::post('/CreationFomationTraitement', [DashboardPersonnelController::class, 'CreationFomationTraitement'])->name('CreationFomationTraitement');
-
-
-Route::get('/listFomation', [DashboardPersonnelController::class, 'listFomation'])->name('listFomation');
-
-Route::get('/detailFomation/{formation}', [DashboardPersonnelController::class, 'detailFomation'])->name('detailFomation');
-
-
-Route::get('/{formation}/modifier', [DashboardPersonnelController::class, 'modificationFormation'])->name('modificationFormation');
-Route::post('/{formation}/modifier', [DashboardPersonnelController::class, 'modificationFormationTraitement'])->name('modificationFormationTraitement');
+    Route::get('/gestionFomation', [DashboardPersonnelController::class, 'gestionFomation'])->name('gestionFomation');
+    Route::get('/CreationFomation', [DashboardPersonnelController::class, 'CreationFomation'])->name('CreationFomation');
+    Route::post('/CreationFomationTraitement', [DashboardPersonnelController::class, 'CreationFomationTraitement'])->name('CreationFomationTraitement');
+    Route::get('/listFomation', [DashboardPersonnelController::class, 'listFomation'])->name('listFomation');
+    Route::get('/detailFomation/{formation}', [DashboardPersonnelController::class, 'detailFomation'])->name('detailFomation');
+    Route::get('/{formation}/modifier', [DashboardPersonnelController::class, 'modificationFormation'])->name('modificationFormation');
+    Route::post('/{formation}/modifier', [DashboardPersonnelController::class, 'modificationFormationTraitement'])->name('modificationFormationTraitement');
+// });
