@@ -10,6 +10,45 @@
     body{
         background: var(--couleur-primaire, #FFF);
     }
+    .header {
+    width: 100%;
+    height: 70px;
+    background: #CE0033;
+    border-radius: 70px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 0px 96px;
+}
+
+.header .logo {
+    width: 111px;
+    height: 33px;
+}
+
+.header .navbar ul {
+    display: flex;
+    list-style: none;
+    margin: 20px;
+}
+
+.header .navbar a {
+    text-decoration: none;
+    color: white;
+    font-size: 16;
+    font-family: "Roboto Slab", serif;
+    margin: 0px 10px;
+    padding: 8px 15px;
+
+}
+
+.header .navbar a:hover,
+.header .navbar a.active {
+    color: black;
+    background: white;
+    border-radius: 25px;
+    transition: all .3s ease;
+}
     .card-red{
       border: 2px solid #CE0033;
       font-size: 20px;
@@ -131,10 +170,50 @@
             padding-left: 80%;
         }
     }
+    .button{
+            border: 2px solid white;
+            width: 150px;
+            border-radius: 100px;
+            background-color: #CE0033;
+
+            margin-top: 15px;
+            a{
+                color: white;
+            font-weight: bold;
+            font-family: "Roboto Mono";
+            font-size: 18px;
+            }
+        }
+        .button:hover{
+            border: 2px solid white;
+            width: 150px;
+            border-radius: 100px;
+            background-color: white;
+
+            a{
+                color: #CE0033;
+            font-weight: bold;
+            font-family: "Roboto Mono";
+            font-size: 18px;
+            }
+        }
   </style>
 </head>
 <body>
-
+<header class="header">
+        <img src="{{ asset('img/logo-footer.svg') }}" class="logo" alt="logo simplon">
+        <nav class="navbar">
+            <ul>
+            <li><a href="/welcome">Accueil</a></li>
+            <li><a href="#" class="active">Formation</a></li>
+            </ul>
+        </nav>
+        <div class="profil-content">
+            <div class="profil">
+            <button class="button"><a href="login">Connexion</a> </button>
+            </div>
+        </div>
+    </header>
 <div class="container my-5">
 <div class="img1"><img src="{{asset('images/1.png')}}" alt=""> </div>
     <img src="{{asset('images/1.png')}}" alt="">

@@ -7,7 +7,7 @@ use App\Http\Controllers\AuthCandidatController;
 use App\Http\Controllers\PersonnelAuthController;
 use App\Http\Controllers\DashboardPersonnelController;
 
-Route::get('/', function () {
+Route::get('/welcome', function () {
     return view('welcome');
 });
 
