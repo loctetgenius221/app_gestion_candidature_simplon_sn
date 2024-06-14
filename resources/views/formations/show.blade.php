@@ -126,13 +126,18 @@
             height: 50px;
             width: 50px;
         }
+
+        .img1{
+            padding-left: 80%;
+        }
     }
   </style>
 </head>
 <body>
 
 <div class="container my-5">
-
+<div class="img1"><img src="{{asset('images/1.png')}}" alt=""> </div>
+    <img src="{{asset('images/1.png')}}" alt="">
   <div class="row">
     <div class="col">
       @if(session('success'))
@@ -144,7 +149,7 @@
         <h4>Vous souhaitez rejoindre l’une de nos formation ? N’attendez plus vous êtes au bon endroit</h4>
         <hr class="ligne">
         <h5>Pour bénéficier de nos formations, plusieurs étapes doivent être franchies. Ainsi, nous lançons un appel à candidatures afin de sélectionner les bénéficiaires en fonction de nos critères.</h5>
-        <div class="img"><img src="assets[public/images/1.png]" alt=""> </div>
+
         <div class="competences">
             <div class="card-competence">
                 <p class="titre">Appel à candidature</p>
