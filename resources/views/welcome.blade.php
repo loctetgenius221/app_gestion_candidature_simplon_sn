@@ -10,7 +10,9 @@
     body{
         background: var(--couleur-primaire, #FFF);
     }
-
+    h2{
+                font-weight: bold;
+            }
     .card-red{
       border: 2px solid #CE0033;
       font-size: 20px;
@@ -130,15 +132,15 @@
         height: 202px;
         flex-shrink: 0;
         margin-left: 75%;
-        margin-top: -30%;
+        margin-top: -36%;
         border-radius: 202px;    
         }
         .rond2{
         width: 87px;
         height: 87px;
         flex-shrink: 0;
-        margin-left: 68%;
-        margin-top: -7%;
+        margin-left: 67%;
+        margin-top: -8%;
         border-radius: 87px;
         background: url(<path-to-image>) lightgray 50% / cover no-repeat;
         }
@@ -154,8 +156,8 @@
         width: 87px;
         height: 87px;
         flex-shrink: 0;
-        margin-left: 84%;
-        margin-top: -15%;
+        margin-left: 87%;
+        margin-top: -18%;
         border-radius: 87px;
         background: url(<path-to-image>) lightgray 50% / cover no-repeat;
         }
@@ -174,36 +176,59 @@
         margin-bottom: 30px;
     }
 
+    .formations{
+        display: flex;
+        justify-content: space-between;
+    }
+
+    .card{
+        filter: drop-shadow(0px 4px 4px rgba(0, 0, 0, 0.25));
+        width: 30%;
+        height: auto;
+        p{
+            margin-left: 5px;
+        }
+        h4{
+            color: #CE0033;
+            font-size: 20px;
+            margin-left: 3px;
+            font-weight: bold;
+        }
+    }
+
     .values {
         border: 2px solid red;
         display: flex;
         flex-wrap: wrap;
+        align-items: center;
         justify-content: space-around;
         margin-bottom: 20px;
         border-radius: 100px;
         width: 80%;
         justify-content: center;
+        padding-top: 50px;
         height: 580px;
     }
 
     .value-box {
-        margin-top: 70px;
         margin-bottom: 40px;
         background-color: white;
-        width: 35%;
+        width: 40%;
         margin-bottom: 20px;
         overflow: hidden;
         display: flex;
         flex-direction: column;
         align-items: center;
-        margin-left: 50px;
-        margin-right: 50px;
+        margin-left: 30px;
+        margin-right: 30px;
     }
 
     .value-box img {
         width: 100%;
         height: auto;
+        margin-top: 10px;
         margin-left: 20px;
+        margin-bottom: 40px;
     }
 
     .value-content h2 {
@@ -216,6 +241,7 @@
         color: #333;
         line-height: 1.6;
         margin-left: -40px;
+        margin-bottom: 40px;
     }
         
     .valeur{
@@ -227,6 +253,7 @@
 
     h1, h2 {
         color: #d80027;
+        font-size: 25px;
     }
 
     .card-title {
@@ -234,10 +261,10 @@
     }
 
     .statistique {
-        margin-top: 1500px;
+        margin-top: 50px;
         background-color: #d80027;
         h2{
-            font-size: 40px;
+            font-size: 25px;
             font-weight: bold;
         }
     }
@@ -246,10 +273,14 @@
         margin: 0;
         color: #FFF;
     }
-
+.statistique-container{
+    margin-top: 90px;
+    margin-bottom: 80px;
+}
     .card-competence{
-            margin-top: 60px;
-            margin-right: 15px;
+            margin-top: 10px;
+            margin-right: 25px;
+            margin-left: 25px;
             padding-top: 35px;
             height: 300px;
             width: 250px;
@@ -268,19 +299,21 @@
             }
         }
         .competences{
+            justify-content: center;
             display: flex;
-            width: 70%;
-            justify-content: space-between;
+            width: 100%;
+            margin-top: 50px;
             li{
                 margin-left: 2px;
             }
         }
         .pedagogie-container{
-            margin-top: 100px;
-        padding-top: 20px;
+        margin-top: 30px;
+        padding-top: 5px;
         font-family: "Roboto Mono";
-        height: 650px;
+        height: 600px;
         background: rgba(217, 217, 217, 0.17);
+        padding: 50px;
         }
         .pedagogie{
         padding-top: 50px;
@@ -291,18 +324,20 @@
         h4{
             
             color: #CE0033;
-            font-size: 32px;
+            font-size: 34px;
             margin-bottom: 60px;
             margin: 5px;
+        }.image{
+            height: 285px;
         }
         .infos{
-            margin-left: 110px;
+            margin-left: 50px;
             width: 500px;
             p{
                 color: var(--couleur-tertiaire, #000);
             /* styleSousTitre */
             font-family: "Roboto Mono";
-            font-size: 17px;
+            font-size: 16px;
             font-style: normal;
             font-weight: 500;
             line-height: normal; 
@@ -313,7 +348,11 @@
                 font-weight: 500;
                 margin-left: -40px;
             }
+
         }
+            }
+            .formation-container{
+                margin-top: 100px;
             }
         .card-body ul {
             padding-left: 0;
@@ -373,6 +412,7 @@
         </div>
       </div>
         </div>
+
         <h2 class="text-center my-5">Nos valeurs</h2>
         <div class="values">
             <div class="value-box">
@@ -428,6 +468,7 @@
                 <img src="{{asset('images/rect2.png') }} " alt="Leadership">
             </div>     
         </div>
+
         <div class="pedagogie-container">
         <h2 class="text-center my-5">Notre approche pédagogique</h2>
         <div class="pedagogie">
@@ -446,13 +487,44 @@
         entreprises.</p>
         </div>
         <div class="images">
-            <img src="{{asset('images/Rectangle 12.png') }}" alt="">
+            <img src="{{asset('images/Rectangle 12.png') }}" alt="" class="image">
         </div>
       </div>
         </div>
-        </div>
 
-    <div class="statistique bg-danger text-white text-center py-5">
+        <div class="formations-container">
+        <h2 class="text-center my-5">Nos Formations</h2>
+        <div class="formations">
+            <div class="card">
+                    <img src="{{asset('images/f1.png') }}" alt="">
+                <div class="card-body">
+                    <h4>Formation SAS Women in Tech <br> par Simplon Sénégal : Votre <br> Porte d’Entrée dans le Monde <br> du Numérique.</h4>
+                    <p>Chez Simplon Sénégal, nous croyons en <br> l’émancipation des femmes dans le domaine <br> du numérique. Notre formation SAS Women <br> in Tech, d’une durée de 6 semaines, est conçue </p>
+
+                </div>
+            </div>
+
+            <div class="card">
+                    <img src="{{asset('images/f2.png') }}" alt="">
+                <div class="card-body">
+                    <h4>Formation en Développement <br> Web et Web Mobile par Simplon <br> Sénégal : Votre Porte <br> d’Entrée dans le Monde du Numérique.</h4>
+                    <p>Chez Simplon Sénégal, nous croyons en la <br> puissance de la pédagogie active pour former <br> des professionnels du numérique compétents <br> et prêts à relever les défis du monde digital  ...</p>
+
+                </div>
+            </div>
+
+            <div class="card">
+                    <img src="{{asset('images/f3.png') }}" alt="">
+                <div class="card-body">
+                    <h4>Découvrez le référentiel <br> de Référent Digital : <br> Compétences clés pour le <br> monde numérique.</h4>
+                    <p>Simplon Sénégal, à travers sa pédagogie  <br>active, forme des professionnels compétents <br> dans le domaine du numérique. Le métier <br> de Référent Digital est l’un des parcours de <br> formation ...</p>
+
+                </div>
+            </div>
+      </div>
+        </div>
+        <h2 class="text-center my- 5  statistique-container">Notre impact</h2>
+        <div class="statistique bg-danger text-white text-center py-5">
             <div class="container">
                 <div class="row">
                     <div class="col-md-3">
@@ -623,6 +695,10 @@
                 <span class="sr-only">Next</span>
             </a>
         </div> -->
+
+
+        </div>
+
   </div>
  
 </div>
