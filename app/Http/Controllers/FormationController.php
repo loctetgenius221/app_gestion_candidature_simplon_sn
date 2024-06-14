@@ -38,6 +38,10 @@ class FormationController extends Controller
         return view ('formations/show')->with('success', 'La formation a bien été ajoutée.');
     }
 
+
+    
+
+
     public function update(){
 
     }
