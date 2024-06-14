@@ -1,0 +1,93 @@
+.content-head {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.content-head .retour{
+    color: #ce0033;
+    text-decoration: none;
+    font-size: 16px;
+    font-weight: 500;
+}
+.container .content {
+    display: flex;
+    gap: 2%;
+    width: 100%;
+}
+
+ .info-formation {
+    width: 836px;
+    height: 500px;
+    flex-shrink: 0;
+    border-radius: 10px;
+    background: var(--couleur-primaire, #FFF);
+    box-shadow: 0px 4px 4px 0px rgba(0, 0, 0, 0.25);
+    margin-left: 40px;
+    margin-top: 50px;
+    padding: 40px;
+}
+
+ .info-formation h1 {
+    font-size: 30px;
+    margin-bottom: 23px;
+}
+
+ .detail-date {
+    display: flex;
+    gap: 100px;
+    color: #ce0033;
+    margin-top: 45px;
+}
+
+.content .detail-date h3 span {
+    color: grey;
+}
+
+.info-formation h4 {
+    color: #ce0033;
+    margin-top: 36px;
+    margin-bottom: 23px;
+}
+
+.content .pre-requis {
+    background: white;
+    width: 30%;
+    height: auto;
+    border-radius: 10px;
+    padding: 45px 56px;
+    border: 1px solid black;
+}
+
+.content .pre-requis h4 {
+    color: #ce0033;
+    font-size: 18px;
+    margin-bottom: 23px;
+}
+
+.btn-remove{
+    display: inline-flex;
+padding: 13px 84px;
+justify-content: center;
+align-items: center;
+gap: 10px;
+border: 2px solid var(--Couleur-seconder, #CE0033);
+background: rgba(217, 217, 217, 0.00);
+}
+
+.btn-gestion{
+    position: absolute;
+    display: flex;
+    flex-direction: row;
+    gap: 39px;
+    color: var(--Couleur-seconder, #CE0033);
+font-family: "Roboto Slab";
+font-size: 16px;
+font-style: normal;
+font-weight: 500;
+line-height: normal;
+}
+a{
+    text-decoration: none;
+    color: #CE0033;
+}

@@ -27,7 +27,8 @@ class FormationController extends Controller
             'nom' => 'required',
             'description' => 'required',
             'debouches' => 'required',
-            'statut' => 'required',
+            'date_de_debut' => 'required',
+            'date_de_fin' => 'required','statut' => 'required',
             'critere_de_validation' => 'required',
 
         ]);
@@ -36,6 +37,10 @@ class FormationController extends Controller
 
         return view ('formations/show')->with('success', 'La formation a bien été ajoutée.');
     }
+
+
+    
+
 
     public function update(){
 

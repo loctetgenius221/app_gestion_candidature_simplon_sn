@@ -1,26 +1,23 @@
+
+
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+   
+    <title>Gestion de formation</title>
 <style>
-            .imageDeFont {
-            width: 100%;
-            height: 250px;
-    margin: 0px;
-    background-image: url({{ asset('images/fondDePage.png') }});
-    background-repeat: no-repeat; /* Prevent repeating the image */
-    background-size: cover; /* Ensure the image covers the entire area */
-    position: relative; /* Enable positioning of child elements */
-}
+
 </style>
-    <link rel="stylesheet" href="{{ asset('css/style.css') }}">
+    <link rel="stylesheet" href="{{ asset('css/gestionFormation.css') }}">
+    <link rel="stylesheet" href="{{ asset('css/detailFormation.css') }}">
 </head>
 <body>
     <nav>
         <img src="{{ asset('images/logo.png') }}" alt="logo_simplon">
-        <div class="titre"><h2>Bienvenue sur Simplon Sénégal Formation </h2></div>
+        <div class="titre"><h2>Gestion des formations </h2></div>
         <svg xmlns="http://www.w3.org/2000/svg" width="85" height="78" viewBox="0 0 85 78" fill="none">
                 <rect width="85" height="78" rx="20" fill="white"/>
                 <mask id="mask0_9_50" style="mask-type:alpha" maskUnits="userSpaceOnUse" x="20" y="17" width="45" height="45">
@@ -51,7 +48,7 @@
                     <h2>Gestion des Candidatures </h2>
                 </div>
               </a>
-               <a href="/gestionFomation">
+               <a href="#">
                <div class="btn-navigate">
                                     <svg xmlns="http://www.w3.org/2000/svg" width="40" height="40" viewBox="0 0 40 40" fill="none">
                     <mask id="mask0_9_27" style="mask-type:alpha" maskUnits="userSpaceOnUse" x="0" y="0" width="40" height="40">
@@ -145,73 +142,65 @@
 
         <div class="container-page1">
             <div class="container-page">
-
-
-                <div class="compteur-content">
-                    <div class="compteur">
-                    <span>{{ $formationsTotal }}</span>
+                <div class="btn-gestion">
+                    <a href="/CreationFomation">
+                    <div class="btn-add">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="40" height="40" viewBox="0 0 40 40" fill="none">
+                        <mask id="mask0_58_1727" style="mask-type:alpha" maskUnits="userSpaceOnUse" x="0" y="0" width="40" height="40">
+                        <rect width="40" height="40" fill="#D9D9D9"/>
+                        </mask>
+                        <g mask="url(#mask0_58_1727)">
+                        <path d="M18.3334 28.3333H21.6667V21.6666H28.3334V18.3333H21.6667V11.6666H18.3334V18.3333H11.6667V21.6666H18.3334V28.3333ZM20 36.6666C17.6945 36.6666 15.5278 36.2291 13.5 35.3541C11.4723 34.4791 9.70837 33.2916 8.20837 31.7916C6.70837 30.2916 5.52087 28.5278 4.64587 26.5C3.77087 24.4722 3.33337 22.3055 3.33337 20C3.33337 17.6944 3.77087 15.5278 4.64587 13.5C5.52087 11.4722 6.70837 9.70831 8.20837 8.20831C9.70837 6.70831 11.4723 5.52081 13.5 4.64581C15.5278 3.77081 17.6945 3.33331 20 3.33331C22.3056 3.33331 24.4723 3.77081 26.5 4.64581C28.5278 5.52081 30.2917 6.70831 31.7917 8.20831C33.2917 9.70831 34.4792 11.4722 35.3542 13.5C36.2292 15.5278 36.6667 17.6944 36.6667 20C36.6667 22.3055 36.2292 24.4722 35.3542 26.5C34.4792 28.5278 33.2917 30.2916 31.7917 31.7916C30.2917 33.2916 28.5278 34.4791 26.5 35.3541C24.4723 36.2291 22.3056 36.6666 20 36.6666ZM20 33.3333C23.7223 33.3333 26.875 32.0416 29.4584 29.4583C32.0417 26.875 33.3334 23.7222 33.3334 20C33.3334 16.2778 32.0417 13.125 29.4584 10.5416C26.875 7.95831 23.7223 6.66665 20 6.66665C16.2778 6.66665 13.125 7.95831 10.5417 10.5416C7.95837 13.125 6.66671 16.2778 6.66671 20C6.66671 23.7222 7.95837 26.875 10.5417 29.4583C13.125 32.0416 16.2778 33.3333 20 33.3333Z" fill="#1C1B1F"/>
+                        </g>
+                    </svg>
+                    <h3>Créer une formation</h3>
                     </div>
-                    <h3>Formations en cours</h3>
-                </div>
-
-
-
-                <div class="compteur-content">
-                    <div class="compteur">
-                    <span>{{ $formationAVenir }}</span>
-                    
-                </div>
-                <h3>Formations a venir</h3>
-                </div>
-
-
-                <div class="compteur-content">
-                    <div class="compteur">
-                    <span>{{ $formationAVenir }}</span>
+                    </a>
+                    <a href="/listFomation">
+                    <div class="btn-add">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="40" height="40" viewBox="0 0 40 40" fill="none">
+                        <mask id="mask0_16_720" style="mask-type:alpha" maskUnits="userSpaceOnUse" x="0" y="0" width="40" height="40">
+                        <rect width="40" height="40" fill="#D9D9D9"/>
+                        </mask>
+                        <g mask="url(#mask0_16_720)">
+                        <path d="M20.0001 26.6667C22.0834 26.6667 23.8542 25.9375 25.3126 24.4792C26.7709 23.0209 27.5001 21.25 27.5001 19.1667C27.5001 17.0834 26.7709 15.3125 25.3126 13.8542C23.8542 12.3959 22.0834 11.6667 20.0001 11.6667C17.9167 11.6667 16.1459 12.3959 14.6876 13.8542C13.2292 15.3125 12.5001 17.0834 12.5001 19.1667C12.5001 21.25 13.2292 23.0209 14.6876 24.4792C16.1459 25.9375 17.9167 26.6667 20.0001 26.6667ZM20.0001 23.6667C18.7501 23.6667 17.6876 23.2292 16.8126 22.3542C15.9376 21.4792 15.5001 20.4167 15.5001 19.1667C15.5001 17.9167 15.9376 16.8542 16.8126 15.9792C17.6876 15.1042 18.7501 14.6667 20.0001 14.6667C21.2501 14.6667 22.3126 15.1042 23.1876 15.9792C24.0626 16.8542 24.5001 17.9167 24.5001 19.1667C24.5001 20.4167 24.0626 21.4792 23.1876 22.3542C22.3126 23.2292 21.2501 23.6667 20.0001 23.6667ZM20.0001 31.6667C15.9445 31.6667 12.2501 30.5347 8.91675 28.2709C5.58341 26.007 3.16675 22.9722 1.66675 19.1667C3.16675 15.3611 5.58341 12.3264 8.91675 10.0625C12.2501 7.79863 15.9445 6.66669 20.0001 6.66669C24.0556 6.66669 27.7501 7.79863 31.0834 10.0625C34.4167 12.3264 36.8334 15.3611 38.3334 19.1667C36.8334 22.9722 34.4167 26.007 31.0834 28.2709C27.7501 30.5347 24.0556 31.6667 20.0001 31.6667ZM20.0001 28.3334C23.139 28.3334 26.0209 27.507 28.6459 25.8542C31.2709 24.2014 33.2779 21.9722 34.6668 19.1667C33.2779 16.3611 31.2709 14.132 28.6459 12.4792C26.0209 10.8264 23.139 10 20.0001 10C16.8612 10 13.9792 10.8264 11.3542 12.4792C8.72925 14.132 6.7223 16.3611 5.33342 19.1667C6.7223 21.9722 8.72925 24.2014 11.3542 25.8542C13.9792 27.507 16.8612 28.3334 20.0001 28.3334Z" fill="#1C1B1F"/>
+                        </g>
+                    </svg>
+                    <h3>Voir les formations</h3>
                     </div>
-                    <h3>Candidatures reçu</h3>
+                    </a>
                 </div>
-
-
-                <div class="compteur-content">
-                    <div class="compteur">
-                        <span>34</span>
-                    </div>
-                    <h3>Candidats sélectionner</h3>
-                </div>
-
             </div>
 
 
-                <div class="condidatures">
 
-                <h1>Candidature</h1>
-        @foreach($formations as $formation)
 
-<div class="candidatures-diso">
-<div class="candidature1">
-<div class="candidature">
-<h3>{{ $formation->nom}}</h3>
-<h4>{{ $formation->statut }}</h4>
-<h4>345 candidats</h4>
+                <div class="info-formation">
+                <h1>{{ $formation->nom }}</h1>
+                <p>{{ $formation->description }}</p>
+                <div class="detail-date">
+                    <h3>Début : <span>{{ $formation->date_de_debut }}</span></h3>
+                    <h3>Fin : <span>{{ $formation->date_de_fin }}</span></h3>
+                    <h3>Statut : <span>{{ $formation->statut }}</span></h3>
+                </div>
+                <h4>Débouchés :</h4>
+                <p>{{ $formation->debouches }}</p>
+            <div class="btn-gestion">
+    <a href="{{ route('modificationFormation', ['formation' => $formation->id]) }}">
+        <div class="btn-remove">
+            Modifier
+        </div>
+    </a>
+    <a href="#">
+        <div class="btn-remove">
+            Supprimer
+        </div>
+    </a>
 </div>
-<a href="#">
-<div class="btn-voir-candidature">
-<span>Voir</span>
-</div>
-</a>
-
-</div>
-        @endforeach
-
-</div>
-</div>
-
-</div>
-</div>
-<div class="imageDeFont"></div>
-
-</div>
-
+            </div>
+         </div>
+        </div>
+   
 </body>
+
 </html>

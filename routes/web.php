@@ -1,4 +1,5 @@
 <?php
+
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\FormationController;
 use App\Http\Controllers\CandidatController;
@@ -6,7 +7,7 @@ use App\Http\Controllers\AuthCandidatController;
 use App\Http\Controllers\PersonnelAuthController;
 use App\Http\Controllers\DashboardPersonnelController;
 
-Route::get('/', function () {
+Route::get('/welcome', function () {
     return view('welcome');
 });
 
@@ -40,9 +41,16 @@ Route::get('personnel-logout', [PersonnelAuthController::class, 'logout'])->name
 Route::get('personnel-register', [PersonnelAuthController::class, 'showRegistrationForm'])->name('personnel-register');
 Route::post('personnel-register', [PersonnelAuthController::class, 'register']);
 
+// Définir une route de redirection de connexion par défaut
+Route::get('login', function() {
+    return redirect()->route('personnel-login');
+})->name('login');
+
 // Routes pour les formations
 Route::prefix('formations')->name('formations.')->group(function(){
     Route::get('/show', [FormationController::class, 'index'])->name('show');
+    ROute::get('/create', [FormationController::class, 'create'])->name('create');
+    Route::get('formation/{}id/details', [FormationController::class, 'details'])->name('details');
     Route::get('/create', [FormationController::class, 'create'])->name('create');
     Route::post('/', [FormationController::class, 'store'])->name('store');
     Route::get('/{formation}/edit', [FormationController::class, 'edit'])->name('edit');
@@ -51,11 +59,23 @@ Route::prefix('formations')->name('formations.')->group(function(){
 });
 
 // Route pour le tableau de bord
+Route::middleware(['auth', 'personnel'])->group(function () {
+    
+});
+Route::get('/dashboard', [DashboardPersonnelController::class, 'dashboard'])->name('dashboard');
+    Route::get('/formations', [DashboardPersonnelController::class, 'index'])->name('formations.index');
+    Route::get('/formations-personnels/create', [DashboardPersonnelController::class, 'create'])->name('formations.create');
+    Route::post('/formations', [DashboardPersonnelController::class, 'store'])->name('formations.store');
 
-    Route::get('/dashboard', [DashboardPersonnelController::class, 'dashboard'])->name('dashboard');
+Route::get('/gestionFomation', [DashboardPersonnelController::class, 'gestionFomation'])->name('gestionFomation');
+Route::get('/CreationFomation', [DashboardPersonnelController::class, 'CreationFomation'])->name('CreationFomation');
+Route::post('/CreationFomationTraitement', [DashboardPersonnelController::class, 'CreationFomationTraitement'])->name('CreationFomationTraitement');
 
 
+Route::get('/listFomation', [DashboardPersonnelController::class, 'listFomation'])->name('listFomation');
 
-// Route pour le dashboard candidat
+Route::get('/detailFomation/{formation}', [DashboardPersonnelController::class, 'detailFomation'])->name('detailFomation');
 
-Route::get('/candidat/dashboard', [CandidatController::class, 'index'])->name('candidat-dashboard');
+
+Route::get('/{formation}/modifier', [DashboardPersonnelController::class, 'modificationFormation'])->name('modificationFormation');
+Route::post('/{formation}/modifier', [DashboardPersonnelController::class, 'modificationFormationTraitement'])->name('modificationFormationTraitement');

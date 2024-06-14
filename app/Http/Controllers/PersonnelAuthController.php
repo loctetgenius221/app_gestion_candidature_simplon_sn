@@ -20,9 +20,9 @@ class PersonnelAuthController extends Controller
     {
         $credentials = $request->only('e_mail', 'mot_de_passe');
         if (Auth::attempt($credentials)) {
-            return redirect()->intended('/personnels/dashboard');
+            return redirect()->intended('dashboard');
         }
-        return redirect('/personnels/dashboard')->withErrors('Identifiant ou mot de passe incorrect');
+        return redirect('/dashboard')->withErrors('Identifiant ou mot de passe incorrect');
     }
 
     // Méthode de déconnexion de l'utilisateur
