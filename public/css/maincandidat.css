@@ -10,15 +10,23 @@
     margin-bottom: 25px;
 }
 
+.container .candidature-soumises {
+    min-height: 60vh;
+}
+
 .container .section-title {
     font-size: 18px;
     margin-bottom: 26px;
 }
-
+.container .formation-venir {
+    min-height: 60vh;
+    margin-bottom: 10rem;
+}
 .section-content {
     position: relative;
     display: flex;
     flex-wrap: wrap;
+    row-gap: 5rem;
     justify-content: space-between;
     margin-top: 50px;
 }
@@ -66,6 +74,7 @@
     border: 2px solid #ce0033;
     padding: 15px;
     position: relative;
+    /* margin-bottom: 5rem; */
 }
 .card-formation
  {
@@ -194,9 +203,6 @@
     margin-bottom: 35px;
 }
 
-.form-group label {
-}
-
 .form-group textarea {
     width: 100%;
     border: 2px solid lightgray;
@@ -229,4 +235,40 @@
     font-weight: bold;
     font-family: "Roboto Mono", monospace;
     outline-color: #ce0033;
+}
+
+/*  */
+
+.succes-section {
+    display: flex;
+    justify-content: center;
+}
+
+.succes-content {
+    position: relative;
+    padding: 50px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background: white;
+    width: 720px;
+    height: 250px;
+    border-radius: 10px;
+    gap: 5px;
+}
+.succes-content .succes-icon {
+    position: absolute;
+    top: 1rem;
+    right: 1rem;
+}
+.succes-content img {
+    width: 30px;
+    height: 30px;
+}
+.succes-content p {
+    font-size: 24px;
+}
+
+.right {
+    float: right;
 }

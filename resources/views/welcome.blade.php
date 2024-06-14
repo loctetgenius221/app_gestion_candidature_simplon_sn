@@ -232,7 +232,11 @@
             font-weight: bold;
         }
     }
-
+.values-container{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
     .values {
         border: 2px solid red;
         display: flex;
@@ -431,6 +435,46 @@
             font-size: 18px;
             }
         }
+        .temoignages{
+
+            img{
+                width: 120px;
+                height: 120px;
+            }
+            p{
+                width: 100%;
+                text-align: center;
+            }
+            h5{
+                color: #CE0033;
+            }
+        }
+        .bande{
+            width: 100%;
+            height: 200px;
+            background-color: #CE0033;
+        }
+        .temoignage{
+            width: 400px;
+            height: 400px;
+            text-align: center;
+            background-color: #FDEDF1;
+            padding-top: 25px;
+        }
+        .temoignages-container{
+            display: flex;
+            justify-content: space-around;
+            margin-top: -100px;
+            margin-left: 120px;
+            margin-right: 120px;
+            h5{
+                margin-top: 45px;
+                margin-bottom: 25px;
+            }
+            p{
+                margin-left: 15px;
+            }
+        }
   </style>
 </head>
 <body >
@@ -489,6 +533,7 @@
         </div>
       </div>
         </div>
+<div class="values-container">
 
         <h2 class="text-center my-5">Nos valeurs</h2>
         <div class="values">
@@ -520,9 +565,9 @@
         </div>
         <div class="values">
             <div class="value-box">
-            <img src="{{asset('images/rect1.png')}} " alt="Leadership">
+            <img src="{{asset('images/rect3.png')}} " alt="Leadership">
                 <div class="value-content">
-                    <h2>Motivation & Partage</h2>
+                    <h2>Ouverture Numérique</h2>
                     <p>Convaincus que le numérique ne doit plus être un <br>
                         privilège au profit de certains et au détriment <br>
                         d’autres, nous travaillons à ce que l’accès soit <br>
@@ -533,7 +578,7 @@
             </div>
             <div class="value-box">
                 <div class="value-content">
-                    <h2>Solidarité & Inclusion</h2>
+                    <h2>Leadership</h2>
                     <p>Simpson s'investit également dans des actions <br>
                         de plaidoyer et de sensibilisation au numérique <br>
                         auprès des femmes, des jeunes filles et des <br>
@@ -542,10 +587,10 @@
                         de 35% de femmes et de 10% de personnes en <br>
                         situation de handicap (PSH) dans ses cohortes.</p>
                 </div>
-                <img src="{{asset('images/rect2.png') }} " alt="Leadership">
+                <img src="{{asset('images/rect4.png') }} " alt="Leadership">
             </div>     
         </div>
-
+        </div>
         <div class="pedagogie-container">
         <h2 class="text-center my-5">Notre approche pédagogique</h2>
         <div class="pedagogie">
@@ -659,6 +704,24 @@
                             <li>Cloud computing et services <br> cloud</li>
                         </ul>
             </div>
+        </div>
+
+        <h2 class="text-center my-5">Alumnis</h2>
+
+        <div class="temoignages">
+            <div class="bande"></div>
+            <div class="temoignages-container">
+                <div class="temoignage">
+                    <img src="{{ asset('images/Ellipse 9.png')}} " alt="" img>
+                    <h5>Moussa Sagna</h5>
+                    <p>Mon expérience a Simplon m’a ouvert <br> beaoucoup de portes et  je ne regrette <br> absolument pas d’y avoir fait la <br> formation de la P7 en Developpement Web et <br> Web Mobile</p>
+            </div>
+                <div class="temoignage">
+                    <img src="{{ asset('images/Ellipse 9.png')}} " alt="" img>
+                    <h5>Moussa Sagna</h5>
+                    <p>Mon expérience a Simplon m’a ouvert <br> beaoucoup de portes et  je ne regrette <br> absolument pas d’y avoir fait la <br> formation de la P7 en Developpement Web et <br> Web Mobile</p>
+            </div>            
+        </div>
         </div>
 
       <!--     <h2 class="text-center my-5">Alumnis</h2>

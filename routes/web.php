@@ -23,10 +23,15 @@ Route::post('candidat-register', [AuthCandidatController::class, 'register']);
 Route::get('candidat-formation', [CandidatController::class, 'afficher'])->name('dashboard-candidat-formation');
 Route::get('candidat-formation/{id}/detail', [CandidatController::class, 'afficherDetail'])->name('detail-formation');
 
+// Détails candidature
+Route::get('/candidatures', [CandidatController::class, 'listeCandidatures'])->name('candidatures.liste');
+
+Route::get('candidatures/{id}/detail', [CandidatController::class, 'afficherDetailCandidature'])->name('detail-candidature');
+Route::get('', [CandidatController::class, 'candidatureSoumise'])->name('candidature_soumise');
+
 Route::post('candidater/{id}', [CandidatController::class, 'postuler'])->name('postuler');
 Route::post('candidater/{id}/traitement', [CandidatController::class, 'postulerTraitement'])->name('postuler-traitement');
 
-Route::get('candidature/{id}/detail', [CandidatController::class, 'candidatureDetail'])->name('candidature-detail');
 
 
 // Routes d'authentification du personnel

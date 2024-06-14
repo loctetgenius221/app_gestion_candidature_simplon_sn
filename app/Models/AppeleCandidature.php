@@ -23,6 +23,11 @@ class AppeleCandidature extends Model
 
     public function candidats()
     {
-        return $this->belongsToMany(Candidat::class, 'candidat_appel_candidature', 'appel_candidature_identifiant', 'candidat_id');
+        return $this->belongsTo(Candidat::class, 'candidature_id');
     }
+    public function formation()
+    {
+        return $this->belongsTo(Formation::class, 'formation_id');
+    }
+
 }
