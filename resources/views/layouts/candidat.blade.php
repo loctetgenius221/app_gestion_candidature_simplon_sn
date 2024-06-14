@@ -9,6 +9,7 @@
 </head>
 <body>
 
+
     <header class="header">
         <img src="{{ asset('img/logo-footer.svg') }}" class="logo" alt="logo simplon">
         <nav class="navbar">
@@ -23,16 +24,50 @@
             <div class="profil">
                 <img src="{{ asset('img/VectorUser.png') }}" alt="">
                 <h3>Prénom NOM</h3>
-                <i class="fa-solid fa-sort-down"></i>
+                <i class="fa-solid fa-sort-down" id="profileIcon"></i>
             </div>
         </div>
     </header>
 
     @yield('content')
 
+    <div class="profile-modal" id="profileModal">
+        <div class="profile-content">
+            <span class="close-btn" id="closeProfile">&times;</span>
+            <h2>Mon compte :</h2>
+            <p><strong>Prénom :</strong> Ndèye Yandé</p>
+            <p><strong>Nom :</strong> Touré</p>
+            <p><strong>Date de naissance :</strong> 19/03/2001</p>
+            <p><strong>Lieu de naissance :</strong> Dieupeul 1</p>
+            <p><strong>Adresse :</strong> Dieupeul 1, Dakar</p>
+            <p><strong>Email :</strong> toureyande77@gmail.com</p>
+            <p><strong>Téléphone :</strong> 77 863 12 41</p>
+            <p><strong>cv actuel :</strong> moncv.pdf</p>
+            <p><strong>Upload un cv :</strong> <input type="file"></p>
+            <a href="#" id="logout">Déconnexion</a>
+        </div>
+    </div>
+
     <footer>
         <p>Tout droit réservés - copy right - 2024 SIMPLON SÉNÉGAL</p>
     </footer>
+
+    <script>
+        document.getElementById('profileIcon').addEventListener('click', function() {
+            document.getElementById('profileModal').style.display = 'flex';
+        });
+
+        document.getElementById('closeProfile').addEventListener('click', function() {
+            document.getElementById('profileModal').style.display = 'none';
+        });
+
+        window.addEventListener('click', function(event) {
+            if (event.target === document.getElementById('profileModal')) {
+                document.getElementById('profileModal').style.display = 'none';
+            }
+        });
+    </script>
+
 
 </body>
 </html>
