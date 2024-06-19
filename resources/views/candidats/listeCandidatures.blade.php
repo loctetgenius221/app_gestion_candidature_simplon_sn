@@ -21,22 +21,22 @@
             <h2 class="section-title">La liste de nos formations</h2>
             <div class="section-content">
                 <img src="{{ asset('img/motif.svg') }}" class="motif motif1" alt="">
-                @foreach ($formations as $formation)
+                @foreach ($candidatures as $candidature)
                 <div class="card-border">
                     <div class="card-formation">
-                        <h1 class="card-title">{{ $formation->nom }}</h1>
+                        <h1 class="card-title">{{ $candidature->formation->nom }}</h1>
                         <div class="date">
                             <h2>Date début : </h2>
-                            <span class="date">{{ $formation->date_de_debut }}</span>
+                            <span class="date">{{ $candidature->formation->date_de_debut }}</span>
                         </div>
                         <div class="date">
                             <h2>Date de fin : </h2>
-                            <span class="date">{{ $formation->date_de_fin}}</span>
+                            <span class="date">{{ $candidature->formation->date_de_fin}}</span>
                         </div>
 
-                        <form action="{{ route('detail-formation',['id' => $formation->id]) }}" method="GET">
+                        <form action="{{ route('detail-formation',['id' => $candidature->formation->id]) }}" method="GET">
                             @csrf
-                            <input type="hidden" name="id" value="{{ $formation->id }}">
+                            <input type="hidden" name="id" value="{{ $candidature->formation->id }}">
                             <button type="submit" class="detail-formation">Découvrir plus...</button>
                         </form>
                     </div>

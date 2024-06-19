@@ -25,7 +25,7 @@ Route::get('candidat-formation/{id}/detail', [CandidatController::class, 'affich
 // Détails candidature
 Route::get('/candidatures', [CandidatController::class, 'listeCandidatures'])->name('candidatures.liste');
 Route::get('candidatures/{id}/detail', [CandidatController::class, 'afficherDetailCandidature'])->name('detail-candidature');
-// Route::get('', [CandidatController::class, 'candidatureSoumise'])->name('candidature_soumise');
+Route::get('', [CandidatController::class, 'candidatureSoumise'])->name('candidature_soumise');
 Route::get('candidater/{id}', [CandidatController::class, 'postuler'])->name('postuler');
 Route::post('candidater/{id}/traitement', [CandidatController::class, 'postulerTraitement'])->name('postuler-traitement');
 

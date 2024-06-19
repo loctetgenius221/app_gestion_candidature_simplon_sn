@@ -14,8 +14,8 @@
         <img src="{{ asset('img/logo-footer.svg') }}" class="logo" alt="logo simplon">
         <nav class="navbar">
             <ul>
-              
-                <li><a href="#cadidature">Candidature</a></li>
+                <li><a href="{{ route('candidatures.liste') }}">Candidature</a></li>
+                <li><a href="{{ route('dashboard-candidat-formation') }}">Formation</a></li>
             </ul>
         </nav>
         <div class="profil-content">

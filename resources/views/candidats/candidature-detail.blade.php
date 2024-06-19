@@ -18,7 +18,7 @@
 
     <div class="container">
         <div class="content-head">
-            <h2 class="section-title">Détails de la formation</h2>
+            <h2 class="section-title">Détails de la candidature</h2>
             <a href="{{ route('candidat-dashboard') }}" class="retour">Retour</a>
         </div>
 

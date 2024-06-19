@@ -83,8 +83,6 @@ class CandidatController extends Controller
 
     public function listeCandidatures()
     {
-
-        // Récupérer le candidat avec un ID spécifique (par exemple, 1)
         $candidat = Candidat::find(1);
 
         // Vérifier si le candidat existe
