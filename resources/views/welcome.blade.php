@@ -488,7 +488,9 @@
         </nav>
         <div class="profil-content">
             <div class="profil">
-                <button class="button"><a href="login">Connexion</a> </button>
+            <button class="button">
+    <a href="{{ route('showLoginUserForm', ['role' => 'user']) }}">User Login</a>
+</button>
             </div>
         </div>
     </header>
