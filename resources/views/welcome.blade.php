@@ -93,7 +93,7 @@
         }
     }
 
-    
+
     .card{
         font-family: "Roboto Mono";
         border: none;
@@ -115,7 +115,7 @@
         margin-top: 70px;
         margin-bottom: 25px;
         color: #CE0033;
-        
+
     }
     .banner{
         padding-top: 50px;
@@ -124,7 +124,7 @@
         height: 620px;
         background: rgba(217, 217, 217, 0.17);
         h4{
-            
+
             color: #CE0033;
             font-size: 32px;
             margin-bottom: 60px;
@@ -149,7 +149,7 @@
             font-size: 22px;
             font-style: normal;
             font-weight: 500;
-            line-height: normal; 
+            line-height: normal;
             margin-top: 40px;
             }
         }
@@ -170,7 +170,7 @@
         flex-shrink: 0;
         margin-left: 75%;
         margin-top: -36%;
-        border-radius: 202px;    
+        border-radius: 202px;
         }
         .rond2{
         width: 87px;
@@ -284,7 +284,7 @@
         margin-left: -40px;
         margin-bottom: 40px;
     }
-        
+
     .valeur{
         width: 80%;
         height: 600px;
@@ -332,8 +332,8 @@
             font-family: "Roboto Mono";
             font-style: normal;
             font-weight: 500;
-            line-height: normal; 
-        
+            line-height: normal;
+
             p{
                 padding-left: 10px;
                 font-size: 15px;
@@ -363,7 +363,7 @@
         height: 500px;
         display: flex;
         h4{
-            
+
             color: #CE0033;
             font-size: 34px;
             margin-bottom: 60px;
@@ -381,7 +381,7 @@
             font-size: 16px;
             font-style: normal;
             font-weight: 500;
-            line-height: normal; 
+            line-height: normal;
             margin-top: 40px;
             }
             h4{
@@ -488,9 +488,9 @@
         </nav>
         <div class="profil-content">
             <div class="profil">
-            <button class="button">
-    <a href="{{ route('showLoginUserForm', ['role' => 'user']) }}">User Login</a>
-</button>
+                <button class="button">
+                    <a href="{{ route('showLoginUserForm', ['role' => 'user']) }}">User Login</a>
+                </button>
             </div>
         </div>
     </header>
@@ -507,15 +507,15 @@
             <h4 class="texte1"><span> Simplon  </span> Sénégal </h4>
                 <h4 class="texte2"> Les <span> métiers </span> </h4>
                <h4 class="texte3">  du <span>  Numérique</span> </h4>
-                <p>Simplon Sénégal, à travers son programme 
-                    hashtag#AfricanTechBridge, a formé 22 
-                    membres de l'Association des Personnes en 
-                    Situation de Handicap (PSH) de Guinaw 
+                <p>Simplon Sénégal, à travers son programme
+                    hashtag#AfricanTechBridge, a formé 22
+                    membres de l'Association des Personnes en
+                    Situation de Handicap (PSH) de Guinaw
                     Rails du 13 au 17 mai 2024, et 21 membres
-                    de l'Association des Maîtres et 
-                    Entrepreneurs du Sénégal les 21 et 22 
-                    avril, aux compétences hashtag#numériques 
-                    fondamentales respectivement au Centre 
+                    de l'Association des Maîtres et
+                    Entrepreneurs du Sénégal les 21 et 22
+                    avril, aux compétences hashtag#numériques
+                    fondamentales respectivement au Centre
                     socio-éducatif et culturel Apix Guinaw DBD7D7
                     Rail Sud et à la Mairie de Pikine Ouest.</p>
 
@@ -563,7 +563,7 @@
                         situation de handicap (PSH) dans ses cohortes.</p>
                 </div>
                 <img src="{{asset('images/rect2.png') }} " alt="Leadership">
-            </div>     
+            </div>
         </div>
         <div class="values">
             <div class="value-box">
@@ -590,7 +590,7 @@
                         situation de handicap (PSH) dans ses cohortes.</p>
                 </div>
                 <img src="{{asset('images/rect4.png') }} " alt="Leadership">
-            </div>     
+            </div>
         </div>
         </div>
         <div class="pedagogie-container">
@@ -722,7 +722,7 @@
                     <img src="{{ asset('images/Ellipse 9.png')}} " alt="" img>
                     <h5>Moussa Sagna</h5>
                     <p>Mon expérience a Simplon m’a ouvert <br> beaoucoup de portes et  je ne regrette <br> absolument pas d’y avoir fait la <br> formation de la P7 en Developpement Web et <br> Web Mobile</p>
-            </div>            
+            </div>
         </div>
         </div>
 
@@ -842,7 +842,7 @@
         </div>
 
   </div>
- 
+
 </div>
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz" crossorigin="anonymous"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/js/all.min.js" integrity="sha384-lZN37fLxoqAC6ABzH8E8XK4X3/AdHmy8Tlfk2Pz34uV1oLxefs/FiqFE5vNE6uZ9" crossorigin="anonymous"></script>

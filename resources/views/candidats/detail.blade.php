@@ -41,7 +41,7 @@
             </div>
             <div class="pre-requis">
                 <h4>Pré-requis :</h4>
-                <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Rem, labore.</p>
+                <p>{{ $formation->critere_de_validation }}</p>
             </div>
         </div>
     </div>

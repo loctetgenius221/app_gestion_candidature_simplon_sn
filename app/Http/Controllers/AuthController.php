@@ -35,7 +35,7 @@ class AuthController extends Controller
         switch ($role) {
             case 'user':
                 if (Auth::guard('web')->attempt($credentials)) {
-                    return redirect()->intended('/candidat-formation');
+                    return redirect()->intended('/candidature');
                 }
                 break;
 
