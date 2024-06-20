@@ -8,6 +8,8 @@ use Illuminate\Http\Request;
 use Illuminate\View\ViewName;
 use App\Models\AppeleCandidature;
 use Illuminate\Support\Facades\Auth;
+use App\Mail\CandidatureSoumise;
+use Illuminate\Support\Facades\Mail;
 use Illuminate\Support\Facades\Storage;
 
 
@@ -20,7 +22,7 @@ class CandidatController extends Controller
     }
     public function index() {
 
-        $candidat = Candidat::find(1);
+        $candidat = Auth::user();
         // Récupérer les candidatures liées à ce candidat
         $candidatures = AppeleCandidature::where('candidature_id', $candidat->id)->get();
         $formations = Formation::all();
@@ -41,7 +43,7 @@ class CandidatController extends Controller
 
     public function postuler($id)
     {
-        $candidat = Candidat::find(1);
+        $candidat = Auth::user();
         $formation = Formation::findOrFail($id);
         return view('candidats.postuler', compact('formation', 'candidat'));
     }
@@ -56,16 +58,13 @@ class CandidatController extends Controller
             'niveau_etude' => 'required|string|in:Bfem,Baccalauréat,Licence 1,Licence 2,Licence 3,Master',
             'cv' => 'required|mimes:pdf,doc,docx|max:2048',
         ]);
-        // Commenter parce que un problème de middleware avec l'authentification
-        // $candidat = Auth::user();
-        $candidat = Candidat::find(1);
+        $candidat = Auth::user();
 
         // Gestion de l'upload du fichier CV
         if ($request->hasFile('cv')) {
             // Stocker le fichier dans le dossier 'public/cvs'
             $cvPath = $request->file('cv')->store('cvs', 'public');
 
-            // Mettre à jour le chemin du CV dans la table 'candidats'
             $candidat->cv = $cvPath;
             $candidat->save();
         }
@@ -77,15 +76,16 @@ class CandidatController extends Controller
         $candidature->candidature_id = $candidat->id; // Utiliser l'ID du candidat connecté
         $candidature->save();
 
+        // Envoi de l'e-mail de confirmation de soumission
+        Mail::to($candidat->email)->send(new CandidatureSoumise($candidature));
+
         return redirect()->route('candidature_soumise')
                         ->with('success', 'Votre candidature a été soumise avec succès.');
     }
 
     public function listeCandidatures()
     {
-
-        // Récupérer le candidat avec un ID spécifique (par exemple, 1)
-        $candidat = Candidat::find(1);
+        $candidat = Auth::user();
 
         // Vérifier si le candidat existe
         if (!$candidat) {
@@ -108,8 +108,33 @@ class CandidatController extends Controller
 
 
     public function afficherDetailCandidature($id) {
-        $candidature = AppeleCandidature::with('formation')->findOrFail($id);
+
+        $candidature = AppeleCandidature::with('candidat')->find($id);
         return view('candidats.candidature-detail', compact('candidature'));
+
+    }
+
+
+    public function afficherCV($id)
+    {
+        $candidat = Auth::user($id);
+
+        if ($candidat->cv) {
+            // Construire le chemin complet vers le fichier CV
+            $cvPath = storage_path('app/public/' . $candidat->cv);
+
+            // Vérifier si le fichier existe
+            if (file_exists($cvPath)) {
+                // Retourner le fichier en réponse
+                return response()->file($cvPath);
+            } else {
+                // Si le fichier n'existe pas, retourner une erreur 404
+                abort(404, 'CV non trouvé.');
+            }
+        } else {
+            // Si aucun chemin de CV n'est défini pour ce candidat
+            abort(404, 'CV non trouvé.');
+        }
     }
 
 

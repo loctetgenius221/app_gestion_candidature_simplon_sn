@@ -33,7 +33,7 @@
                 </div>
                 <h4>Débouchés :</h4>
                 <p>{{ $formation->debouches }}</p>
-                <form action="{{ route('postuler', ['id' => $formation->id]) }}" method="POST">
+                <form action="{{ route('postuler', ['id' => $formation->id]) }}" method="GET">
                     @csrf
                     <input type="hidden" name="id" value="{{ $formation->id }}">
                     <button class="detail-formation" type="submit">Candidater</button>
@@ -41,7 +41,7 @@
             </div>
             <div class="pre-requis">
                 <h4>Pré-requis :</h4>
-                <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Rem, labore.</p>
+                <p>{{ $formation->critere_de_validation }}</p>
             </div>
         </div>
     </div>

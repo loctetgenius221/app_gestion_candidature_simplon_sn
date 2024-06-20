@@ -178,6 +178,8 @@
     border-radius: 10px;
     padding: 45px 56px;
     border: 1px solid black;
+    display: flex;
+    flex-direction: column;
 }
 
 .content .pre-requis h4 {
@@ -271,4 +273,14 @@
 
 .right {
     float: right;
+}
+.cv-pdf
+{
+    align-self: center;
+    margin-top: 1.5rem;
+}
+.cv-pdf i
+{
+    font-size: 5rem;
+    color: black;
 }

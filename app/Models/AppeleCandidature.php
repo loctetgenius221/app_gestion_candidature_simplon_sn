@@ -21,7 +21,7 @@ class AppeleCandidature extends Model
         'niveau_etude',
     ];
 
-    public function candidats()
+    public function candidat()
     {
         return $this->belongsTo(Candidat::class, 'candidature_id');
     }

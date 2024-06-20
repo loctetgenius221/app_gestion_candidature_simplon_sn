@@ -18,8 +18,8 @@
 
     <div class="container">
         <div class="content-head">
-            <h2 class="section-title">Détails de la formation</h2>
-            <a href="{{ route('candidat-dashboard') }}" class="retour">Retour</a>
+            <h2 class="section-title">Détails de la candidature</h2>
+            <a href="{{ route('candidatures.liste') }}" class="retour">Retour</a>
         </div>
 
         <div class="content">
@@ -37,7 +37,7 @@
                 <div class="detail-date statut">
                     <h3>Statut : <span>{{ $candidature->statut }}</span></h3>
                 </div>
-                <a href="" class="detail-formation right" style="text-decoration: none">Retour</a>
+                <a href="{{ route('candidatures.liste') }}" class="detail-formation right" style="text-decoration: none">Retour</a>
 
             </div>
             <div class="pre-requis">
@@ -49,6 +49,14 @@
                     <p>Email : <span>{{ $candidature->candidat->email }}</span></p>
                     <p>Adresse : <span>{{ $candidature->candidat->adresse }}</span></p>
                     <p>Né(e) : <span>{{ $candidature->candidat->date_de_naissance }}</span></p>
+                    @if ($candidature->candidat->cv)
+                        <a href="{{ asset($candidature->candidat->cv) }}" target="_blank" class="cv-pdf">
+                            <i class="fa-regular fa-file-pdf"></i>
+                        </a>
+                    @else
+                        <p>Aucun CV trouvé pour ce candidat.</p>
+                    @endif
+
                 @else
                     <p>Aucune information sur le candidat trouvée.</p>
                 @endif
