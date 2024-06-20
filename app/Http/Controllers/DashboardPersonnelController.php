@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Candidat;
 use App\Models\Formation;
 use App\Models\Personnel;
 use Illuminate\Http\Request;
@@ -17,12 +18,20 @@ class DashboardPersonnelController extends Controller
         $personnels = Personnel::all();
 
         $formationsTotal = Formation::count();
+        $candidatTotal = Candidat::count();
         $formationAVenir = Formation::where('statut', 'a venir')->count();
+        $candidatEnAttente = Candidat::where('statut', 'En attente')->count();
+        $candidatSelectionner = Candidat::where('statut', 'Selectionner')->count();
 
-        return view('personnels.dashboard', [
+
+        // Passage des données à la vue
+        return view('personnels.dashboard',[
             'formationsTotal' => $formationsTotal,
             'formationAVenir' => $formationAVenir,
-        ], compact('formations', 'personnels'));
+            'candidatTotal' => $candidatTotal,
+            'candidatEnAttente' => $candidatEnAttente,
+            'candidatSelectionner' => $candidatSelectionner,
+        ])->with(compact('formations', 'personnels',));
     }
     public function gestionFomation()
     {

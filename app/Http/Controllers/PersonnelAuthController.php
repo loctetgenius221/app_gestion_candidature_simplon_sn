@@ -14,20 +14,24 @@ class PersonnelAuthController extends Controller
         return view('personnels.login');
     }
 
-    // Méthode de connexion de l'utilisateur
-
-        public function login(Request $request)
+    public function login(Request $request)
     {
-        $credentials = $request->only('e_mail', 'mot_de_passe');
-       
+        $request->validate([
+            'e_mail' => 'required|email',
+            'mot_de_passe' => 'required',
+        ]);
 
-        if (Auth::guard('personnels')->attempt($credentials)) {
-            return redirect()->intended('/dashboard-personnel');
+        $personnel = Personnel::where('e_mail', $request->e_mail)->first();
+
+        if ($personnel && Hash::check($request->mot_de_passe, $personnel->mot_de_passe)) {
+            Auth::guard('web')->login($personnel);
+            return redirect()->intended('dashboard-personnel');
         }
 
-        return back()->withErrors(['e_mail' => 'Invalid credentials.']);
+        return back()->withErrors([
+            'e_mail' => 'Les informations d\'identification ne correspondent pas.',
+        ]);
     }
-
     // Méthode de déconnexion de l'utilisateur
     public function logout()
     {

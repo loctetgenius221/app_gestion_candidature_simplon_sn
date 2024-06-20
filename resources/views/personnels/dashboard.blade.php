@@ -36,10 +36,10 @@
         <div class="side-bar">
             <div class="user-info">
                 <img src="{{ asset('images/logo.png') }}" alt="image-personnel">
-                <h3>
-                    <span>Bonjour </span>
-                    <span>Bienvenue sur Simplon Sénégal</span>
-                </h3>
+                @if(Auth::check())
+    <p>Bienvenue, {{ $userName }}</p>
+@endif
+
             </div>
             <div class="navigation-btn">
               <a href="#">
@@ -126,6 +126,10 @@
                     <h2>Candidats en attente </h2>
                 </div>
                     </a>
+                    <form action="{{ route('logout', ['role' => 'admin']) }}" method="POST">
+    @csrf
+    <button type="submit">Logout</button>
+</form>
                 <a href="/personnel-logout">
                 <div class="btn-logout">
                     
@@ -155,19 +159,9 @@
                 </div>
 
 
-
                 <div class="compteur-content">
                     <div class="compteur">
-                    <span>{{ $formationAVenir }}</span>
-                    
-                </div>
-                <h3>Formations a venir</h3>
-                </div>
-
-
-                <div class="compteur-content">
-                    <div class="compteur">
-                    <span>{{ $formationAVenir }}</span>
+                    <span>{{ $candidatTotal}}</span>
                     </div>
                     <h3>Candidatures reçu</h3>
                 </div>
@@ -175,7 +169,19 @@
 
                 <div class="compteur-content">
                     <div class="compteur">
-                        <span>34</span>
+                    <span>{{ $candidatEnAttente }}</span>
+                    
+                </div>
+                <h3>Candidats en attente</h3>
+                </div>
+
+
+                
+
+
+                <div class="compteur-content">
+                    <div class="compteur">
+                        <span>{{ $candidatSelectionner }}</span>
                     </div>
                     <h3>Candidats sélectionner</h3>
                 </div>
